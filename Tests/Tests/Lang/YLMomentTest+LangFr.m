@@ -60,10 +60,10 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"quelques secondes");
 
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"s"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"une minute");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 minute");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:89 forUnitKey:@"s"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"une minute");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 minute");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:90 forUnitKey:@"s"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 minutes");
@@ -72,10 +72,10 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"44 minutes");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"m"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"une heure");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 heure");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:89 forUnitKey:@"m"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"une heure");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 heure");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:90 forUnitKey:@"m"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 heures");
@@ -87,16 +87,16 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"21 heures");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:22 forUnitKey:@"h"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un jour");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 jour");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:35 forUnitKey:@"h"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un jour");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 jour");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:36 forUnitKey:@"h"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 jours");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un jour");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 jour");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 jours");
@@ -105,13 +105,13 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"25 jours");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:26 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un mois");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:30 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un mois");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un mois");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:46 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 mois");
@@ -123,7 +123,7 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"3 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"M"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un mois");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"M"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 mois");
@@ -132,16 +132,16 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"11 mois");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:345 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un an");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 an");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:547 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un an");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 an");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:548 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 ans");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"y"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"un an");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 an");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"y"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 ans");
@@ -171,7 +171,7 @@
     expect([reference2 fromNow]).to.equal(@"dans 5 jours");
     
     YLMoment *reference3 = [[YLMoment now] addAmountOfTime:-1 forCalendarUnit:NSCalendarUnitDay];
-    expect([reference3 fromNow]).to.equal(@"il y a un jour");
+    expect([reference3 fromNow]).to.equal(@"il y a 1 jour");
 }
 
 - (void)testLangFromNowWithSuffix
