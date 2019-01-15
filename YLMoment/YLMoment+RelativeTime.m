@@ -28,6 +28,7 @@
 
 /** The table name for the relative time strings. */
 static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTimeLocalizable";
+static NSString * const kYLMomentRelativeTimeStringTableShort = @"YLMomentRelativeTimeLocalizableShort";
 
 @interface YLMoment (Private)
 
@@ -42,15 +43,19 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
   return [self fromNowWithSuffix:YES];
 }
 
+- (NSString *)fromNowCompact {
+  return [self fromDate:[NSDate date] withSuffix:NO compactFormat:YES];
+}
+
 - (NSString *)fromNowWithSuffix:(BOOL)suffixed {
-  return [self fromDate:[NSDate date] withSuffix:suffixed];
+  return [self fromDate:[NSDate date] withSuffix:suffixed compactFormat:NO];
 }
 
 - (NSString *)fromDate:(NSDate *)date {
-  return [self fromDate:date withSuffix:YES];
+  return [self fromDate:date withSuffix:YES compactFormat:NO];
 }
 
-- (NSString *)fromDate:(NSDate *)date withSuffix:(BOOL)suffixed {
+- (NSString *)fromDate:(NSDate *)date withSuffix:(BOOL)suffixed compactFormat:(BOOL)compactFormat {
   // Get the lang bundle
   NSBundle *localBundle = self.langBundle ?: [[[self class] proxy] langBundle] ?: [NSBundle mainBundle];
 
@@ -62,46 +67,48 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
   double days          = round(hours / 24.0f);
   double years         = round(days / 365.0f);
 
+  NSString *table = compactFormat ? kYLMomentRelativeTimeStringTableShort : kYLMomentRelativeTimeStringTable;
+
   // Build the formatted string
   NSString *formattedString = @"";
   int unit                  = 0;
   if (seconds < 45) {
-    formattedString = [localBundle localizedStringForKey:@"s" value:@"a few seconds" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"s" value:@"a few seconds" table:table];
     unit            = seconds;
   }
   else if (minutes == 1) {
-    formattedString = [localBundle localizedStringForKey:@"m" value:@"a minute" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"m" value:@"a minute" table:table];
   }
   else if (minutes < 45) {
-    formattedString = [localBundle localizedStringForKey:@"mm" value:@"%d minutes" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"mm" value:@"%d minutes" table:table];
     unit            = minutes;
   }
   else if (hours == 1) {
-    formattedString = [localBundle localizedStringForKey:@"h" value:@"an hour" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"h" value:@"an hour" table:table];
   }
   else if (hours < 22) {
-    formattedString = [localBundle localizedStringForKey:@"hh" value:@"%d hours" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"hh" value:@"%d hours" table:table];
     unit            = hours;
   }
   else if (days == 1) {
-    formattedString = [localBundle localizedStringForKey:@"d" value:@"a day" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"d" value:@"a day" table:table];
   }
   else if (days <= 25) {
-    formattedString = [localBundle localizedStringForKey:@"dd" value:@"%d days" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"dd" value:@"%d days" table:table];
     unit            = days;
   }
   else if (days <= 45) {
-    formattedString = [localBundle localizedStringForKey:@"M" value:@"a month" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"M" value:@"a month" table:table];
   }
   else if (days < 345) {
-    formattedString = [localBundle localizedStringForKey:@"MM" value:@"%d months" table:kYLMomentRelativeTimeStringTable];
-    unit            = floor(days / 30);
+    formattedString = [localBundle localizedStringForKey:@"MM" value:@"%d months" table:table];
+    unit            = round(days / 30);
   }
   else if (years == 1) {
-    formattedString = [localBundle localizedStringForKey:@"y" value:@"a year" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"y" value:@"a year" table:table];
   }
   else {
-    formattedString = [localBundle localizedStringForKey:@"yy" value:@"%d years" table:kYLMomentRelativeTimeStringTable];
+    formattedString = [localBundle localizedStringForKey:@"yy" value:@"%d years" table:table];
     unit            = years;
   }
 
@@ -114,10 +121,10 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
     NSString *suffixedString = nil;
 
     if (isFuture) {
-      suffixedString = [localBundle localizedStringForKey:@"future" value:@"in %@" table:kYLMomentRelativeTimeStringTable];
+      suffixedString = [localBundle localizedStringForKey:@"future" value:@"in %@" table:table];
     }
     else {
-      suffixedString = [localBundle localizedStringForKey:@"past" value:@"%@ ago" table:kYLMomentRelativeTimeStringTable];
+      suffixedString = [localBundle localizedStringForKey:@"past" value:@"%@ ago" table:table];
     }
 
     formattedString = [NSString stringWithFormat:suffixedString, formattedString];
@@ -131,7 +138,7 @@ static NSString * const kYLMomentRelativeTimeStringTable = @"YLMomentRelativeTim
 }
 
 - (NSString *)fromMoment:(YLMoment *)moment withSuffix:(BOOL)suffixed {
-  return [self fromDate:[moment date] withSuffix:suffixed];
+  return [self fromDate:[moment date] withSuffix:suffixed compactFormat:NO];
 }
 
 @end

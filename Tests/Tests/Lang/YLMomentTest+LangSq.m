@@ -60,10 +60,10 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"disa sekonda");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"s"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një minut");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 minut");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:89 forUnitKey:@"s"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një minut");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 minut");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:90 forUnitKey:@"s"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 minuta");
@@ -72,10 +72,10 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"44 minuta");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"m"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një orë");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 orë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:89 forUnitKey:@"m"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një orë");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 orë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:90 forUnitKey:@"m"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 orë");
@@ -87,16 +87,16 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"21 orë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:22 forUnitKey:@"h"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një ditë");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 ditë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:35 forUnitKey:@"h"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një ditë");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 ditë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:36 forUnitKey:@"h"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 ditë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një ditë");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 ditë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 ditë");
@@ -105,13 +105,13 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"25 ditë");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:26 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një muaj");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:30 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një muaj");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:45 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një muaj");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:46 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 muaj");
@@ -123,7 +123,7 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"3 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"M"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një muaj");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"M"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 muaj");
@@ -132,16 +132,16 @@
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"11 muaj");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:345 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një vit");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 vit");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:547 forUnitKey:@"d"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një vit");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 vit");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:548 forUnitKey:@"d"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"2 vite");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:1 forUnitKey:@"y"];
-    expect([start fromMoment:end withSuffix:NO]).to.equal(@"një vit");
+    expect([start fromMoment:end withSuffix:NO]).to.equal(@"1 vit");
     
     end = [[YLMoment momentWithArray:@[@2007, @1, @28]] addAmountOfTime:5 forUnitKey:@"y"];
     expect([start fromMoment:end withSuffix:NO]).to.equal(@"5 vite");
@@ -171,7 +171,7 @@
     expect([reference2 fromNow]).to.equal(@"në 5 ditë");
     
     YLMoment *reference3 = [[YLMoment now] addAmountOfTime:-1 forCalendarUnit:NSCalendarUnitDay];
-    expect([reference3 fromNow]).to.equal(@"një ditë me parë");
+    expect([reference3 fromNow]).to.equal(@"1 ditë me parë");
 }
 
 - (void)testLangFromNowWithSuffix

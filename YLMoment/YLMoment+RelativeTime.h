@@ -42,6 +42,16 @@
 - (NSString *)fromNow;
 
 /**
+ * @abstract Returns a suffixed string representing the relative time using
+ * the locale of the moment with compacted language.
+ * @return A suffixed string with the representing time using the locale of
+ * the moment.
+ * @see fromNowWithSuffix:
+ * @since 0.1.0
+ */
+- (NSString *)fromNowCompact;
+
+/**
  * @abstract Returns a string representing the relative time using the
  * locale of the moment and suffixed if necessary.
  * @param suffixed Tells whether the relative time needs to be suffixed. E.g.
@@ -92,7 +102,7 @@
  *
  * @since 0.1.0
  */
-- (NSString *)fromDate:(NSDate *)date withSuffix:(BOOL)suffixed;
+- (NSString *)fromDate:(NSDate *)date withSuffix:(BOOL)suffixed compactFormat:(BOOL)compactFormat;
 
 /**
  * @abstract Returns a suffixed string representing the relative time from a
